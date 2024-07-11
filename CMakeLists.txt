@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-project(HellowWorldProject)
+project(ExpGen)
 
 # Include cmake functions
 include(${CMAKE_CURRENT_SOURCE_DIR}/commonFunctions.cmake)
@@ -9,14 +9,14 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/commonFunctions.cmake)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 # Specify the C++ standard
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Set the root directory of the repository
 set(REPO_ROOT ${CMAKE_SOURCE_DIR})
 
 # Change this flag to true to download googletest to run gtests
-set(TESTING_REQUIRED FALSE)
+set(TESTING_REQUIRED TRUE)
 
 # Conditional based on USE_CUSTOM_LIB
 if(TESTING_REQUIRED)
@@ -38,6 +38,9 @@ endif()
 
 # Add simple Hellolib directory 
 add_subdirectory(${REPO_ROOT}/src/helloLib)
+
+# Add explicitLib directory 
+add_subdirectory(${REPO_ROOT}/src/explicitKeyWord)
 
 # Add main app directory
 add_subdirectory(${REPO_ROOT}/src/app)
